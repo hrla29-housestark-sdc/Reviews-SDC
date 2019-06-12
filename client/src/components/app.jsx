@@ -11,21 +11,22 @@ class App extends React.Component {
       reviews: []
     }
     this.fetchReviews = this.fetchReviews.bind(this);
-    this.refreshReviews = this.refreshReviews.bind(this);
+    // this.refreshReviews = this.refreshReviews.bind(this);
   }
 
   componentDidMount() {
-    this.refreshReviews();
+    // this.refreshReviews();
+    this.fetchReviews();
   }
 
-  refreshReviews() {
-    axios
-      .delete('/reviews/delete')
-      .then(() => {
-        this.fetchReviews();
-      })
-      .catch(err => console.log('error delete all:', err))
-  }
+  // refreshReviews() {
+  //   axios
+  //     .delete('/api/reviews/delete')
+  //     .then(() => {
+  //       this.fetchReviews();
+  //     })
+  //     .catch(err => console.log('error delete all:', err))
+  // }
 
   fetchReviews() {
     axios
@@ -33,6 +34,8 @@ class App extends React.Component {
       .then(({ data }) => {
         this.setState({
           reviews: data
+        }, () => {
+          console.log(this.state.reviews)
         })
       })
       .catch(err => console.log("get error: ", err))

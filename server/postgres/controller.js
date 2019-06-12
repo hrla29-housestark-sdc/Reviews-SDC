@@ -18,6 +18,7 @@ const get = (req, res) => {
     .then((data) => {
       console.log(model.customerReviews, 'hi');
       res.status(200).send(data);
+      console.log('!!!!!!!!!!!!!!!!!!!!!!!')
     })
     .catch(err => res.status(404).send(err));
 };
