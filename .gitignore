@@ -1,2 +1,6 @@
 .DS_Store
 node_modules/
+
+database/cassandra/reviewsCassandra.csv
+database/postgres/productPg.csv
+database/postgres/reviews.csv
