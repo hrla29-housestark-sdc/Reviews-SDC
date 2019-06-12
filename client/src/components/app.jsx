@@ -29,7 +29,7 @@ class App extends React.Component {
 
   fetchReviews() {
     axios
-      .get('/reviews')
+      .get('/api/reviews')
       .then(({ data }) => {
         this.setState({
           reviews: data
