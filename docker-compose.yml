@@ -1,0 +1,29 @@
+# version: ‘3’
+# services:
+#  app:
+#    container_name: morelooks
+#    restart: always
+#    build: .
+#    ports:
+#      - ‘80:3004’
+#    links:
+#      - postgres
+#  postgres:
+#    container_name: postgres
+#    image: postgres
+#    ports:
+#      - ‘27017:27017’
+
+version: "3"
+services:
+  app:
+    build: .
+    depends_on:
+      - postgres
+    ports:
+      - 80:3004
+
+  postgres:
+    image: postgres:11.2-alpine
+    # environment:
+    #   POSTGRES_PASSWORD: postgres
