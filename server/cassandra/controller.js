@@ -1,4 +1,4 @@
-const model = require('../../database/postgres/model.js');
+const model = require('../../database/cassandra/SDCindex.js');
 
 const get = (req, res) => {
   const getRandomInt = (min, max) => {
@@ -6,16 +6,10 @@ const get = (req, res) => {
   max = Math.floor(max)
   return Math.floor(Math.random() * Math.floor(max - min) + min);
 };
-  model.customerReviews.findAll({
-    where: {
-      product_id: getRandomInt(0, 100000)
-    },
-    limit: 9
-  })
+  let query = `SELECT * from reviews where product_id = ${getRandomInt(0, 100000)}`
+  model.execute(query)
     .then((data) => {
-      console.log(model.customerReviews, 'hi');
       res.status(200).send(data);
-      console.log('!!!!!!!!!!!!!!!!!!!!!!!')
     })
     .catch(err => res.status(404).send(err));
 };

@@ -1,23 +1,24 @@
 const connection = require('./index.js');
 const Sequelize = require('sequelize');
 
-const products = connection.define('products', {
-  product_id: {
-    primaryKey: true,
-    type: Sequelize.INTEGER(11),
-    allowNull: false
-  }
-}, {timestamps: false});
+// const products = connection.define('products', {
+//   product_id: {
+//     primaryKey: true,
+//     type: Sequelize.INTEGER(11),
+//     allowNull: false
+//   }
+// }, {timestamps: false});
 
 
 const customerReviews = connection.define('customerReviews', {
+  id: {
+    type: Sequelize.INTEGER(11),
+    primaryKey: true,
+    allowNull: false
+  },
   product_id: {
     type: Sequelize.INTEGER(11),
     allowNull: false,
-    references: {
-      model: 'products',
-      key: 'product_id'
-    }
   },
   createdat: {
     type: Sequelize.TEXT,
@@ -56,5 +57,4 @@ connection.sync({force: false});
 
 module.exports = {
   customerReviews,
-  products
 };
