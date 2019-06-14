@@ -5,6 +5,8 @@ const format = require('pg-format');
 
 const config = {
   host: 'ec2-52-15-36-63.us-east-2.compute.amazonaws.com',
+  username: 'postgres',
+  password: 'hrla29',
   database: 'reviews',
   max: 10,
   // username: 'postgres'
