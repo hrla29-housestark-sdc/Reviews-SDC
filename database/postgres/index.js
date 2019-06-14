@@ -1,13 +1,15 @@
 // const Sequelize = require('sequelize');
+//hello
 const { Pool } = require('pg');
 const format = require('pg-format');
 
 const config = {
-  host: 'ec2-52-15-36-63.us-east-2.compute.amazonaws.com:5432',
+  host: 'ec2-52-15-36-63.us-east-2.compute.amazonaws.com',
   database: 'reviews',
   max: 10,
   // username: 'postgres'
   idleTimeoutMillis: 30000,
+  port: 5432
 };
 
 const client = new Pool(config);
