@@ -13,6 +13,7 @@ const get = (req, res) => {
     if (err) {
       res.status(404).send(err);
     } 
+    console.log(data);
     res.status(200).send(data.rows)
   });
 };
