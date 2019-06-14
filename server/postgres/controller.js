@@ -10,7 +10,6 @@ const get = (req, res) => {
 
   let query = `SELECT * from reviews WHERE product_id = 10`;
   client.query(query, (err, data) => {
-    console.log(err);
     if (err) {
       res.status(404).send(err);
     } 
@@ -19,24 +18,25 @@ const get = (req, res) => {
 };
 
 const post = (req, res) => {
-  let { niackName, title, body, rating, fit} = req.body;
-  model.create({
-    createdat
-  })
-  .then(() => {
-    res.status(201).send('data created');
-  })
-  .catch(err => {
-    res.status(401).send(`error creating ${err}`)
+  let {id, product_id, createdat, nickName, title, body, rating, fit} = req.boy;
+  let query = `INSERT INTO TABLE_NAME (id, product_id, createdat, nickName, title, body, rating, fit)
+  VALUES (${id}, ${product_id}, ${createdat}, ${nickName}, ${title}, ${body}, ${rating}, ${fit});`
+  client.query(query, (err, data) => {
+    if (err) {
+      res.status(404).send(err);
+    } 
+    res.status(201).send('entry created');
   })
 };
 
 const deleteAllData = (req, res) => {
-  model.deleteMany({})
-    .then(() => {
-      res.status(200).send('delete all data');
-    })
-    .catch(err => res.status(404).send(`error ${err}`))
+  let query = `delete from reviews`
+  client.query(query, (err, data) => {
+    if (err) {
+      res.status(404).send(err);
+    }
+    res.status(203).send('all data deleted');
+  });
 };
 
 module.exports = {
