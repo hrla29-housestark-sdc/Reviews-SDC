@@ -1,23 +1,21 @@
-const model = require('../../database/postgres/model.js');
+const client = require('../../database/postgres/index.js');
 
 const get = (req, res) => {
+  console.log('hiiii')
   const getRandomInt = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max)
   return Math.floor(Math.random() * Math.floor(max - min) + min);
 };
-  model.customerReviews.findAll({
-    where: {
-      product_id: getRandomInt(0, 100000)
-    },
-    limit: 9
-  })
-    .then((data) => {
-      console.log(model.customerReviews, 'hi');
-      res.status(200).send(data);
-      console.log('!!!!!!!!!!!!!!!!!!!!!!!')
-    })
-    .catch(err => res.status(404).send(err));
+
+  let query = `SELECT * from reviews WHERE product_id = 10`;
+  client.query(query, (err, data) => {
+    console.log(err);
+    if (err) {
+      res.status(404).send(err);
+    } 
+    res.status(200).send(data.rows)
+  });
 };
 
 const post = (req, res) => {
