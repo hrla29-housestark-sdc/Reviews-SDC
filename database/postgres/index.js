@@ -3,7 +3,7 @@ const { Pool } = require('pg');
 const format = require('pg-format');
 
 const config = {
-  host: 'localhost',
+  host: 'ec2-52-15-36-63.us-east-2.compute.amazonaws.com:5432',
   database: 'reviews',
   max: 10,
   // username: 'postgres'
