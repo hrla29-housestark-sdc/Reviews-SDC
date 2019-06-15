@@ -42,6 +42,4 @@ client.connect()
 //   'CREATE TABLE items(id SERIAL PRIMARY KEY, text VARCHAR(40) not null, complete BOOLEAN)');
 // query.on('end', () => { client.end(); });
 
-module.exports = {
-  client
-}
+module.exports = client
