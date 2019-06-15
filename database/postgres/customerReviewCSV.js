@@ -13,7 +13,7 @@ let finalReviews = [];
 const seed = () => {
   let currentCount = 1; 
   let countToTen = 0;
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 1; i <= 10000000; i++) {
     let target = data[getRandomInt(0, data.length-1)];
     let obj = {};
     if (countToTen >=10) {
