@@ -18,9 +18,16 @@ const client = new Pool(config);
 
 //get connetion
 
-client.connect()
-      .then(() => console.log('connected to postgres'))
-      .catch(err => console.log(`connection error ${err}`))
+// client.connect()
+//       .then(() => console.log('connected to postgres'))
+//       .catch(err => console.log(`connection error ${err}`))
+client.connect((err, client, release) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log('connect to postgres');
+  }
+})
 
 //create table
 
