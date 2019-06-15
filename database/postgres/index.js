@@ -24,29 +24,18 @@ client.connect()
 
 //create table
 
-client.query(`CREATE TABLE IF NOT EXISTS reviews(id INTEGER PRIMARY KEY, product_id INTEGER not null, createdat TEXT, nickName TEXT, title TEXT, body TEXT, rating INTEGER, fit INTEGER)`,
-    (err, res) => {
-      if (err) {
-        console.log(err);
-        // client.end();
-      } else {
-        console.log('data ');
-        // client.end();
-      }
-    }
-);
+// client.query(`CREATE TABLE IF NOT EXISTS reviews(id INTEGER PRIMARY KEY, product_id INTEGER not null, createdat TEXT, nickName TEXT, title TEXT, body TEXT, rating INTEGER, fit INTEGER)`,
+//     (err, res) => {
+//       if (err) {
+//         console.log(err);
+//         // client.end();
+//       } else {
+//         console.log('data ');
+//         // client.end();
+//       }
+//     }
+// );
 
-const get = (req, res) => {
-  let query = `SELECT * from reviews WHERE "product_id" = 10`;
-client.query(query, (err, data) => {
-  if (err) {
-    res.status(404).send(err);
-  } else {
-  console.log(data)
-  res.status(200).send(data.rows)
-  }
-});
-}
 
 
 // const query = client.query(
@@ -54,6 +43,5 @@ client.query(query, (err, data) => {
 // query.on('end', () => { client.end(); });
 
 module.exports = {
-  get,
   client
 }

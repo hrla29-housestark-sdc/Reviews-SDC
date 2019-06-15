@@ -2,22 +2,21 @@ const client = require('../../database/postgres/index.js');
 
 const get = (req, res) => {
   console.log('hiiii')
-//   const getRandomInt = (min, max) => {
-//   min = Math.ceil(min);
-//   max = Math.floor(max)
-//   return Math.floor(Math.random() * Math.floor(max - min) + min);
-// };
+  const getRandomInt = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max)
+  return Math.floor(Math.random() * Math.floor(max - min) + min);
+};
 
-  // let query = `SELECT * from reviews WHERE "product_id" = 10`;
-  // client.query(query, (err, data) => {
-  //   if (err) {
-  //     res.status(404).send(err);
-  //   } else {
-  //   console.log(data)
-  //   res.status(200).send(data.rows)
-  //   }
-  // });
-  client.get(req, res);
+  let query = `SELECT * from reviews WHERE "product_id" = 10`;
+  client.query(query, (err, data) => {
+    if (err) {
+      res.status(404).send(err);
+    } else {
+    console.log(data)
+    res.status(200).send(data.rows)
+    }
+  });
 };
 
 const post = (req, res) => {
