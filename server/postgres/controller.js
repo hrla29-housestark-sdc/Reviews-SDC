@@ -1,7 +1,6 @@
 const client = require('../../database/postgres/index.js');
 
 const get = (req, res) => {
-  console.log('hiiii')
   const getRandomInt = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max)
