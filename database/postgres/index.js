@@ -7,10 +7,10 @@ const config = {
   host: 'ec2-3-16-90-106.us-east-2.compute.amazonaws.com',
   user: 'ubuntu',
   password: 'password',
-  database: 'reviews',
+  dbname: 'reviews',
   max: 10,
   // username: 'postgres'
-  idleTimeoutMillis: 30000,
+  // idleTimeoutMillis: 30000,
   port: 5432
 };
 
