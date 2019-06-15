@@ -9,7 +9,6 @@ const get = (req, res) => {
 };
 
   let query = `SELECT * from reviews WHERE "product_id" = 10`;
-  console.log(client);
   client.query(query, (err, data) => {
     if (err) {
       res.status(404).send(err);
