@@ -4,7 +4,7 @@ const { Pool } = require('pg');
 const format = require('pg-format');
 
 const config = {
-  host: '3.16.90.106',
+  host: 'ec2-3-16-90-106.us-east-2.compute.amazonaws.com:3004',
   username: 'ubuntu',
   password: 'password',
   database: 'reviews',
@@ -36,9 +36,24 @@ client.query(`CREATE TABLE IF NOT EXISTS reviews(id INTEGER PRIMARY KEY, product
     }
 );
 
+const get = (req, res) => {
+  let query = `SELECT * from reviews WHERE "product_id" = 10`;
+client.query(query, (err, data) => {
+  if (err) {
+    res.status(404).send(err);
+  } else {
+  console.log(data)
+  res.status(200).send(data.rows)
+  }
+});
+}
+
 
 // const query = client.query(
 //   'CREATE TABLE items(id SERIAL PRIMARY KEY, text VARCHAR(40) not null, complete BOOLEAN)');
 // query.on('end', () => { client.end(); });
 
-module.exports = client;
+module.exports = {
+  get,
+  client
+}
