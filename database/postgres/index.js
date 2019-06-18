@@ -1,5 +1,3 @@
-// const Sequelize = require('sequelize');
-//hello
 const { Pool } = require('pg');
 const format = require('pg-format');
 
@@ -9,7 +7,6 @@ const config = {
   password: 'password',
   database: 'reviews',
   max: 10,
-  // username: 'postgres'
   idleTimeoutMillis: 30000,
   port: 5432
 };
