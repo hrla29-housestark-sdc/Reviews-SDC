@@ -7,7 +7,7 @@ const get = (req, res) => {
   return Math.floor(Math.random() * Math.floor(max - min) + min);
 };
 
-  let query = `SELECT * from reviews WHERE "product_id" = ${getRandomInt(900000, 1000000)}`;
+  let query = `SELECT * from reviews WHERE "cr_product_id" = ${getRandomInt(900000, 1000000)}`;
   client.query(query, (err, data) => {
     if (err) {
       res.status(404).send(err);

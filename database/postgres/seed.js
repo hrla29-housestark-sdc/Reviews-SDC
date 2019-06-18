@@ -92,7 +92,7 @@ let createCSV = () => {
     finalCutomerReviews.nickName = target.nickName;
     finalCutomerReviews.rating = target.rating;
     finalCutomerReviews.title = target.title;
-    finalProducts.product_id = pgGbCount;
+    finalProducts.product_id = getRandomInt(0, 1000000);
     finalProducts.ratings = target.rating;
     finalProducts.createdat = target.createdAt;
     customerReviews.push(finalCutomerReviews);

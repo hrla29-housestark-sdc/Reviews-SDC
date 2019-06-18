@@ -21,7 +21,7 @@ const seed = () => {
       countToTen = 0;
     }
     obj.id = i;
-    obj.CR_product_id = currentCount;
+    obj.CR_product_id = getRandomInt(0, 1000000);
     obj.createdat = target.createdAt;
     obj.nickName = target.nickName;
     obj.title = target.title;
@@ -35,11 +35,11 @@ const seed = () => {
 
 seed();
 
+// create table reviews(id INTEGER, CR_product_id INTEGER, createdat TEXT, nickName TEXT, title TEXT, body TEXT, rating INTEGER, fit INTEGER, PRIMARY KEY (id))
 
 
 
-
-var wsPostgresProducts = fs.createWriteStream('./reviews.csv', {tags: 'a'});
+var wsPostgresProducts = fs.createWriteStream('./newReviews.csv', {tags: 'a'});
 
 fastCSV
 .write(finalReviews)
