@@ -44,3 +44,6 @@ var wsPostgresProducts = fs.createWriteStream('./newReviews.csv', {tags: 'a'});
 fastCSV
 .write(finalReviews)
 .pipe(wsPostgresProducts)
+
+
+

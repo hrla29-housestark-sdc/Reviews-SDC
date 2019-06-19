@@ -24,6 +24,7 @@
     "lorem-ipsum": "^2.0.2",
     "moment": "^2.24.0",
     "mongoose": "^5.5.8",
+    "newrelic": "^5.10.0",
     "pg": "^7.11.0",
     "pg-format": "^1.0.4",
     "react": "^16.8.6",
